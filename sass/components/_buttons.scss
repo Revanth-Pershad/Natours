@@ -1,0 +1,93 @@
+.btn{
+    &:link, &:visited{ /* This is a pseudo class. Because we know that btn class is a link. Also, :visited because we want look the same after it is clicked. */
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.5rem 4rem;
+      display: inline-block;
+      border-radius: 10rem;
+      transition: all .2s; /* This is used to give a smooth a transition to any change in the properties . This is mostly given to the initial state and the all is used to specify all the properties of the element. */
+      position: relative;
+      font-size: 1.6rem;
+    }
+    
+    /* Use :link for unvisited links. :active when you click the link. :hover when the mouse moves over the link. use :visited to select the clicked links. */
+    /* :active is like :onClick */
+    
+    &:hover{ /* When the mouse is hovered over the element. */
+      transform: translateY(-0.3rem);
+      box-shadow: 0px 18px 12px rgba($color-black, 0.4); /* This is used to give a shadow to the element. top bottom left . then the color to the shadow. */
+      &::after{ /* Thus here the ::after is acting as the background for our button. */
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0; /* Since we added a transition property to the button this will go from visible to invisible making the buttom look good. */
+      }
+    }
+    
+    &:active{ /* This is when the link is visited.As we know when we click as link, then the next time we see the link it is in blue color.This is know as the active state. */
+      transform: translateY(-0.1rem);
+    }
+    
+    
+    /* : is used for pseudo class and :: is used for a psuedo element. */
+    
+    &--white{ /* This used to give the color to a button. */
+      background-color: $color-white;
+      color: $color-grey;
+      &::after{
+        background-color: $color-white;
+      }
+    }
+
+    &--green{ /* This used to give the color to a button. */
+      background-color: $primary-color;
+      color: $color-white;
+      &::after{
+        background-color: $primary-color;
+      }
+    }
+
+    &::after{
+        content: ''; /* Without the content the ::after does not appear. */
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+      }
+      
+      
+      &-animation{ /* Since we donot want all the buttons who has the class 'btn' to have this animation we create a new animation class and add this to the button. */
+          animation: toBottomUp 1s ease-out; /* Applying all the animation properties in one statement. */
+      }
+    }
+
+    .btn-text{
+      transition: all .2s;
+      border-radius: 4px;
+      &:link, &:visited{ // With no interaction.
+        font-size: $default-font-size;
+        color: $primary-color;
+        text-decoration: none;
+        display: inline-block;
+        border-bottom: 1px solid $primary-color;
+        padding: 3px;
+      }
+
+      &:hover{// When the mouse is hovered over the button.
+        color: $color-white;
+        background-color: $primary-color;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
+        transform: translateY(-2px);
+      }
+
+      &:active{ // This is during the button is clicked event.
+        color: $color-white;
+        background-color: $primary-color;
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+        transform: translateY(0);
+      }
+    }
+    

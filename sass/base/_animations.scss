@@ -1,0 +1,48 @@
+
+  @keyframes toLeftIn{   /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
+    0%{ /* This is at the 0% of the animation ie at the start of the animation */
+      opacity: 0; /* Element is invisible at the start. */
+      transform: translate(-10rem); /* It is 200px to left of it's original position. */
+    }
+  
+    80%{ /* This is at the 80% completion of the animation. */
+      transform: translate(1rem); /* It moves to the right at the 80% completion of the animation. */
+    }
+    
+    100%{ /* This is at the finish of the animation. */ /* These are the oiginal properties of the element ie setting the element to its original position etc. */
+      opacity: 1; /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
+      transform: translate(0); /* Undoing any amount of the transform we already kept on the element. */
+    }
+    /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */
+  }
+  
+  @keyframes toRightIn{   /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
+    0%{ /* This is at the 0% of the animation ie at the start of the animation */
+      opacity: 0; /* Element is invisible at the start. */
+      transform: translate(10rem); /* It is 200px to right of it's original position. */
+    }
+  
+    80%{ /* This is at the 80% completion of the animation. */
+      transform: translate(-1rem); /* It moves to the left at the 80% completion of the animation. */
+    }
+    
+    100%{ /* This is at the finish of the animation. */ /* These are the oiginal properties of the element ie setting the element to its original position etc. */
+      opacity: 1; /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
+      transform: translate(0); /* Undoing any amount of the transform we already kept on the element. */
+    }
+    /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */
+  }
+  
+  @keyframes toBottomUp{   /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
+    0%{ /* This is at the 0% of the animation ie at the start of the animation */
+      opacity: 0; /* Element is invisible at the start. */
+      transform: translateY(2rem); /* It is 200px to right of it's original position. */
+    }
+  
+    100%{ /* This is at the finish of the animation. */ /* These are the oiginal properties of the element ie setting the element to its original position etc. */
+      opacity: 1; /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
+      transform: translateY(0); /* Undoing any amount of the transform we already kept on the element. */
+    }
+    /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */
+  }
+  

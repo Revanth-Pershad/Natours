@@ -1,0 +1,98 @@
+/* '*' is the universal selector ie everything falls under the star. */
+/* Three Pillars for good Html and Css - Responsive Design,  Scalabilty,  Web Perfomance */
+
+/* We add --> "scripts": {
+    "compile:sass" : "node-sass sass/main.scss css/style.css -w"
+  }, In the scripts folder in package.json so to compile our scss to css and '-w' to keep a watch over the document to see if there
+  were any changes made and automatically change the code without us typing in the compiler. */
+
+  *, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* This makes so that the padding and the margin are included in the width or the height of the element */
+  }
+  
+  /* BEM - Block Element Modifier */
+  /* Bem is the method of naming the classes in a specific manner so that it is easier to style them in css this is done to html classes
+  
+  Block - The block is a stnadaline class that is independent of any parents and can be reused without any use of an external code. EG the main "Header"
+  Element - These are the element within the main block class example header consists of logo, text-box which are the elements.
+  Modifier - These are the various modifications of the element or the block for example btn-blue this specifices a button that is blue on color.
+  
+  NOTATION ---->   Block__Element--modifier    EG- Header(for the normal header), Header__logo(for the logo within the header),
+   btn--blue(eg. <div class="btn btn--blue"> This gives the div both the button features and the color of blue making it unique modifier of the class button.)
+  */
+  
+  
+  /*                                              Root Element html                                                      */
+  
+  html{
+    font-size: 10px;  /* We are setting this for the rem unit. The default root size for the font size is 16px so by setting it to 62.5% we are seting the size to 10 px so that we can easily set the size of the other element. */
+  }
+  
+  /* Now if we want to set the size of an element to like 18px we can chabge it to 1.8em which is relative to the font size of the 
+  root html. This is useful because when we go to media queries we can just change the font size of the html element and the size of
+  the entire page readjusts because of the rem unit which is relative to the html's font size. */
+  
+  /* Now why do we set the font size to 62.5% and not just 10px because sometimes the user would want to zoom in and out of the website
+  but if we set te size as a default in the code the user can not change the size of the website. Now if we set the size to a percentage
+  the size is set to a percentage of the size set by the user . */
+  
+  
+  /* Body tag is used to reset the default properties of the webpage. Since all the elements are included
+      in the body tag. They inherit these properties if there is no property given to them.
+  */
+  
+  
+    /*                                                MAIN HEADER                                                         */
+  
+ 
+  
+  /**/
+  
+  
+  
+  /*    Animations        */
+  
+  /*             Complex Button              */
+
+  
+    
+    /* ::after and ::before are pseudo elements. As the name suggests they are the elements that appear before and after an element
+    
+    for example for a <p> ::after ::before appear in the element as:
+    
+    <p>
+      ::before
+    
+      [Actual content of <p>]
+    
+      ::after
+    </p>
+    
+    This is how the elements appear
+    :: before and after are created in the element for which they are created.
+    
+    */
+    
+
+  
+  
+  /*   Specificity of the css styles:- (Importance given to the css when the css styles contradicts with the others)
+    The more the specific detail is given to the element the higher priority it has
+    Eg:
+    <p class = "para" id = "impPara">Css trial</p>
+    In Css--
+      p{color : blue;}                      1
+      #impPara .para p{color : green;}      2
+      #impPara {color : red;}               3
+    The first pritority is given to the  2 as it is more specific about the element than the others.
+    Then between 1 and 3 :
+         Many elements have same class 
+         But id is unnique only to one element.
+    Thus id is more specific and thus, 3 is chosen over 1.
+    * has the lowest priority in css
+    Whereas the inline styles has the highest priority over any other css.
+  */
+  
+  

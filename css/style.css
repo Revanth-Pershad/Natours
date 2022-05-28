@@ -1,249 +1,505 @@
+@keyframes toLeftIn {
+  /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
+  0% {
+    /* This is at the 0% of the animation ie at the start of the animation */
+    opacity: 0;
+    /* Element is invisible at the start. */
+    transform: translate(-10rem);
+    /* It is 200px to left of it's original position. */ }
+  80% {
+    /* This is at the 80% completion of the animation. */
+    transform: translate(1rem);
+    /* It moves to the right at the 80% completion of the animation. */ }
+  100% {
+    /* This is at the finish of the animation. */
+    /* These are the oiginal properties of the element ie setting the element to its original position etc. */
+    opacity: 1;
+    /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
+    transform: translate(0);
+    /* Undoing any amount of the transform we already kept on the element. */ }
+  /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */ }
+
+@keyframes toRightIn {
+  /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
+  0% {
+    /* This is at the 0% of the animation ie at the start of the animation */
+    opacity: 0;
+    /* Element is invisible at the start. */
+    transform: translate(10rem);
+    /* It is 200px to right of it's original position. */ }
+  80% {
+    /* This is at the 80% completion of the animation. */
+    transform: translate(-1rem);
+    /* It moves to the left at the 80% completion of the animation. */ }
+  100% {
+    /* This is at the finish of the animation. */
+    /* These are the oiginal properties of the element ie setting the element to its original position etc. */
+    opacity: 1;
+    /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
+    transform: translate(0);
+    /* Undoing any amount of the transform we already kept on the element. */ }
+  /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */ }
+
+@keyframes toBottomUp {
+  /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
+  0% {
+    /* This is at the 0% of the animation ie at the start of the animation */
+    opacity: 0;
+    /* Element is invisible at the start. */
+    transform: translateY(2rem);
+    /* It is 200px to right of it's original position. */ }
+  100% {
+    /* This is at the finish of the animation. */
+    /* These are the oiginal properties of the element ie setting the element to its original position etc. */
+    opacity: 1;
+    /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
+    transform: translateY(0);
+    /* Undoing any amount of the transform we already kept on the element. */ }
+  /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */ }
+
 /* '*' is the universal selector ie everything falls under the star. */
 /* Three Pillars for good Html and Css - Responsive Design,  Scalabilty,  Web Perfomance */
-*, *::after, *::before{
+/* We add --> "scripts": {
+    "compile:sass" : "node-sass sass/main.scss css/style.css -w"
+  }, In the scripts folder in package.json so to compile our scss to css and '-w' to keep a watch over the document to see if there
+  were any changes made and automatically change the code without us typing in the compiler. */
+*, *::after, *::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* This makes so that the padding and the margin are included in the width or the height of the element */
-}
+  box-sizing: border-box;
+  /* This makes so that the padding and the margin are included in the width or the height of the element */ }
 
 /* BEM - Block Element Modifier */
 /* Bem is the method of naming the classes in a specific manner so that it is easier to style them in css this is done to html classes
-
-Block - The block is a stnadaline class that is independent of any parents and can be reused without any use of an external code. EG the main "Header"
-Element - These are the element within the main block class example header consists of logo, text-box which are the elements.
-Modifier - These are the various modifications of the element or the block for example btn-blue this specifices a button that is blue on color.
-
-NOTATION ---->   Block__Element--modifier    EG- Header(for the normal header), Header__logo(for the logo within the header),
- btn--blue(eg. <div class="btn btn--blue"> This gives the div both the button features and the color of blue making it unique modifier of the class button.)
-*/
-
-
+  
+  Block - The block is a stnadaline class that is independent of any parents and can be reused without any use of an external code. EG the main "Header"
+  Element - These are the element within the main block class example header consists of logo, text-box which are the elements.
+  Modifier - These are the various modifications of the element or the block for example btn-blue this specifices a button that is blue on color.
+  
+  NOTATION ---->   Block__Element--modifier    EG- Header(for the normal header), Header__logo(for the logo within the header),
+   btn--blue(eg. <div class="btn btn--blue"> This gives the div both the button features and the color of blue making it unique modifier of the class button.)
+  */
 /*                                              Root Element html                                                      */
-
-html{
-  font-size: 10px;  /* We are setting this for the rem unit. The default root size for the font size is 16px so by setting it to 62.5% we are seting the size to 10 px so that we can easily set the size of the other element. */
-}
+html {
+  font-size: 10px;
+  /* We are setting this for the rem unit. The default root size for the font size is 16px so by setting it to 62.5% we are seting the size to 10 px so that we can easily set the size of the other element. */ }
 
 /* Now if we want to set the size of an element to like 18px we can chabge it to 1.8em which is relative to the font size of the 
-root html. This is useful because when we go to media queries we can just change the font size of the html element and the size of
-the entire page readjusts because of the rem unit which is relative to the html's font size. */
-
+  root html. This is useful because when we go to media queries we can just change the font size of the html element and the size of
+  the entire page readjusts because of the rem unit which is relative to the html's font size. */
 /* Now why do we set the font size to 62.5% and not just 10px because sometimes the user would want to zoom in and out of the website
-but if we set te size as a default in the code the user can not change the size of the website. Now if we set the size to a percentage
-the size is set to a percentage of the size set by the user . */
-
-
+  but if we set te size as a default in the code the user can not change the size of the website. Now if we set the size to a percentage
+  the size is set to a percentage of the size set by the user . */
 /* Body tag is used to reset the default properties of the webpage. Since all the elements are included
-    in the body tag. They inherit these properties if there is no property given to them.
-*/
-
-body{
-  font-family: "Lato", sans-serif;
-  font-weight:  400;  
-  
-  line-height: 1.7; /* The length of the line of every element is 1.7 the original. */
-  color: #777;
-  padding: 25px;
-}
-
-  /*                                                MAIN HEADER                                                         */
-
-.header{
-  height: 95vh; /* 95 percent of the viewport size. Always use vh to make a website as responsive as possible. Because this changes with the size of the screen. */
-  background-image: linear-gradient(to right, #7ed56fd1, #28b485d1) ,url(../img/hero.jpg); /* .. is used to move to the previous directory of the current file. */
-  background-size: cover; /* This in a sense makes the image responsive.It will stretch the image to always cover the entire background with no repeat */
-  background-position: top; /* While cropping the image it sees that the top of the image is not cropped during the resize and only the bottom is resized while cropping */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* Clip path is used to cut an element into a polygon shape we move from the top left into clockwise directon and then specify the coordinate of the ends of the polygon i which the element needs to fit. TO find the various coordinate for any type of polygon go to bennettfeely.com */
-  position : relative; /* The relative position is given to a parent so that the children elements can have a absolute position. */
-}
-
-/*  LOGO  */
-
-.header__logo-box{
-  position: absolute; /* This shows the position of the element inside a paretn compared to the borders of the parent element. */
-  top: 4rem; /* Since the parent element is set to relative this position is from the top border of the parent. */
-  left: 4rem; /* Since the element is set to absolute and the parent to relative this is at 40px from the left border of the parent */
-}
-
-.header__logo{
-  height: 3.5rem; /* We only need to specify the height and the browser automatically figures out the width. */
-}
-
-/*  HEADING  */
-
-.header__text-box{
-  position: absolute;/* Sets the position of the division from the borders of the parents. */
-  top: 40%; /* Sets position of the div 40 percent from the top and 50 percent from the left.Use percentages to make a website responsive. */
-  left: 50%; /* But this positioning does not make the division exactly in the center so we use transform.translate. */
-  transform: translate(-50%, -50%); /* This positioning is relative to the original position of the element and not the parent element. So here we are asking the element t0 move negative(50% to the left and 50% to the top) with respect to the center of it's original position. */
-  text-align: center; /* The anchor tag(here used as a button) behaves as text and this is used to center it in the text-box. */
-}
-
-.heading-primary{
+      in the body tag. They inherit these properties if there is no property given to them.
+  */
+/*                                                MAIN HEADER                                                         */
+/**/
+/*    Animations        */
+/*             Complex Button              */
+/* ::after and ::before are pseudo elements. As the name suggests they are the elements that appear before and after an element
+    
+    for example for a <p> ::after ::before appear in the element as:
+    
+    <p>
+      ::before
+    
+      [Actual content of <p>]
+    
+      ::after
+    </p>
+    
+    This is how the elements appear
+    :: before and after are created in the element for which they are created.
+    
+    */
+/*   Specificity of the css styles:- (Importance given to the css when the css styles contradicts with the others)
+    The more the specific detail is given to the element the higher priority it has
+    Eg:
+    <p class = "para" id = "impPara">Css trial</p>
+    In Css--
+      p{color : blue;}                      1
+      #impPara .para p{color : green;}      2
+      #impPara {color : red;}               3
+    The first pritority is given to the  2 as it is more specific about the element than the others.
+    Then between 1 and 3 :
+         Many elements have same class 
+         But id is unnique only to one element.
+    Thus id is more specific and thus, 3 is chosen over 1.
+    * has the lowest priority in css
+    Whereas the inline styles has the highest priority over any other css.
+  */
+.heading-primary {
   color: #fff;
   text-transform: uppercase;
-  backface-visibility: hidden; /* This sees that after the animation there is no vibration due to the parent element. */
-  margin-bottom: 6rem;
-}
+  backface-visibility: hidden;
+  /* This sees that after the animation there is no vibration due to the parent element. */
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    /* Element take the complete line for itself.*/
+    font-weight: 400;
+    /* This sets the boldness or the thickness of the words similar to the <b></b> tag. */
+    animation-name: toLeftIn;
+    /* This sets what type of the animation is done by the element. It is like setting the animation class to the element. */
+    animation-duration: 1s;
+    /* The time duration of the animation. */
+    animation-timing-function: ease-out;
+    /* Starts fast then slows down. */
+    font-size: 6rem;
+    letter-spacing: 3.5rem; }
+  .heading-primary--sub {
+    display: block;
+    animation-name: toRightIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1.75rem; }
 
-.heading-primary--main{
-  display: block; /* Element take the complete line for itself.*/
-  font-weight: 400; /* This sets the boldness or the thickness of the words similar to the <b></b> tag. */
-  animation-name: toLeftIn; /* This sets what type of the animation is done by the element. It is like setting the animation class to the element. */
-  animation-duration: 1s; /* The time duration of the animation. */
-  animation-timing-function: ease-out; /* Starts fast then slows down. */
-  font-size: 6rem;
-  letter-spacing: 3.5rem;
-}
-
-.heading-primary--sub{
-  display: block;
-  animation-name: toRightIn;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  font-weight: 700;
-  font-size: 2rem;
-  letter-spacing: 1.75rem;
-}
-
-/*    Animations        */
-
-@keyframes toLeftIn{   /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
-  0%{ /* This is at the 0% of the animation ie at the start of the animation */
-    opacity: 0; /* Element is invisible at the start. */
-    transform: translate(-10rem); /* It is 200px to left of it's original position. */
-  }
-
-  80%{ /* This is at the 80% completion of the animation. */
-    transform: translate(1rem); /* It moves to the right at the 80% completion of the animation. */
-  }
-  
-  100%{ /* This is at the finish of the animation. */ /* These are the oiginal properties of the element ie setting the element to its original position etc. */
-    opacity: 1; /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
-    transform: translate(0); /* Undoing any amount of the transform we already kept on the element. */
-  }
-  /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */
-}
-
-@keyframes toRightIn{   /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
-  0%{ /* This is at the 0% of the animation ie at the start of the animation */
-    opacity: 0; /* Element is invisible at the start. */
-    transform: translate(10rem); /* It is 200px to right of it's original position. */
-  }
-
-  80%{ /* This is at the 80% completion of the animation. */
-    transform: translate(-1rem); /* It moves to the left at the 80% completion of the animation. */
-  }
-  
-  100%{ /* This is at the finish of the animation. */ /* These are the oiginal properties of the element ie setting the element to its original position etc. */
-    opacity: 1; /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
-    transform: translate(0); /* Undoing any amount of the transform we already kept on the element. */
-  }
-  /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */
-}
-
-@keyframes toBottomUp{   /* This is like the classes for the animations we define a custom animation and to which ever element we give this animation it mives just like we defined in the keyframe. */
-  0%{ /* This is at the 0% of the animation ie at the start of the animation */
-    opacity: 0; /* Element is invisible at the start. */
-    transform: translateY(2rem); /* It is 200px to right of it's original position. */
-  }
-
-  100%{ /* This is at the finish of the animation. */ /* These are the oiginal properties of the element ie setting the element to its original position etc. */
-    opacity: 1; /* Complaetely visible after the animation. The animation moved from 0 to 0.2 to 0.4 ... to 1 during the animation. */
-    transform: translateY(0); /* Undoing any amount of the transform we already kept on the element. */
-  }
-  /* The animation transitions from the 0 - 80 - 100 smoothly in the keyframes. */
-}
-
-/*             Complex Button              */
-
-.btn:link, btn:visited{ /* This is a pseudo class. Because we know that btn class is a link. Also, :visited because we want look the same after it is clicked. */
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all .2s; /* This is used to give a smooth a transition to any change in the properties . This is mostly given to the initial state and the all is used to specify all the properties of the element. */
-  position: relative;
-  font-size: 1.6rem;
-}
-
-/* Use :link for unvisited links. :active when you click the link. :hover when the mouse moves over the link. use :visited to select the clicked links. */
-/* :active is like :onClick */
-
-.btn:hover{ /* When the mouse is hovered over the element. */
-  transform: translateY(-0.3rem);
-  box-shadow: 0px 18px 12px rgba(0, 0, 0, 0.4); /* This is used to give a shadow to the element. top bottom left . then the color to the shadow. */
-}
-
-.btn:active{ /* This is when the link is visited.As we know when we click as link, then the next time we see the link it is in blue color.This is know as the active state. */
-  transform: translateY(-0.1rem);
-}
-
-/* : is used for pseudo class and :: is used for a psuedo element. */
-
-.btn--white{ /* This used to give the color to a button. */
-  background-color: #fff;
+body {
+  /* This is used to style text thus is also included in typography. */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  /* The length of the line of every element is 1.7 the original. */
   color: #777;
-}
+  padding: 25px; }
 
-/* ::after and ::before are pseudo elements. As the name suggests they are the elements that appear before and after an element
-
-for example for a <p> ::after ::before appear in the element as:
-
-<p>
-  ::before
-
-  [Actual content of <p>]
-
-  ::after
-</p>
-
-This is how the elements appear
-:: before and after are created in the element for which they are created.
-
-*/
-
-.btn::after{
-  content: ''; /* Without the content the ::after does not appear. */
+.heading-secondary {
+  color: rgba(0, 0, 0, 0);
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
   display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s;
-}
+  background-image: linear-gradient(to right, #7ed56fd1, #28b485);
+  -webkit-background-clip: text;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skew(15deg, 2deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
 
-.btn--white::after{
-  background-color: #fff;
-}
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
 
-.btn:hover::after{ /* Thus here the ::after is acting as the background for our button. */
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; /* Since we added a transition property to the button this will go from visible to invisible making the buttom look good. */
-}
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
 
-.btn-animation{ /* Since we donot want all the buttons who has the class 'btn' to have this animation we create a new animation class and add this to the button. */
-    animation: toBottomUp 1s ease-out; /* Applying all the animation properties in one statement. */
-}
+.u-center-text {
+  text-align: center; }
 
-/*   Specificity of the css styles:- (Importance given to the css when the css styles contradicts with the others)
-  The more the specific detail is given to the element the higher priority it has
-  Eg:
-  <p class = "para" id = "impPara">Css trial</p>
-  In Css--
-    p{color : blue;}                      1
-    #impPara .para p{color : green;}      2
-    #impPara {color : red;}               3
-  The first pritority is given to the  2 as it is more specific about the element than the others.
-  Then between 1 and 3 :
-       Many elements have same class 
-       But id is unnique only to one element.
-  Thus id is more specific and thus, 3 is chosen over 1.
-  * has the lowest priority in css
-  Whereas the inline styles has the highest priority over any other css.
-*/
+.margin-bottom-large {
+  margin-bottom: 8rem; }
 
+.margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.margin-bottom-medium {
+  margin-bottom: 5rem; }
+
+.margin-top-large {
+  margin-top: 8rem; }
+
+.btn {
+  /* Use :link for unvisited links. :active when you click the link. :hover when the mouse moves over the link. use :visited to select the clicked links. */
+  /* :active is like :onClick */
+  /* : is used for pseudo class and :: is used for a psuedo element. */ }
+  .btn:link, .btn:visited {
+    /* This is a pseudo class. Because we know that btn class is a link. Also, :visited because we want look the same after it is clicked. */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    /* This is used to give a smooth a transition to any change in the properties . This is mostly given to the initial state and the all is used to specify all the properties of the element. */
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    /* When the mouse is hovered over the element. */
+    transform: translateY(-0.3rem);
+    box-shadow: 0px 18px 12px rgba(0, 0, 0, 0.4);
+    /* This is used to give a shadow to the element. top bottom left . then the color to the shadow. */ }
+    .btn:hover::after {
+      /* Thus here the ::after is acting as the background for our button. */
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+      /* Since we added a transition property to the button this will go from visible to invisible making the buttom look good. */ }
+  .btn:active {
+    /* This is when the link is visited.As we know when we click as link, then the next time we see the link it is in blue color.This is know as the active state. */
+    transform: translateY(-0.1rem); }
+  .btn--white {
+    /* This used to give the color to a button. */
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn--green {
+    /* This used to give the color to a button. */
+    background-color: #55c57a;
+    color: #fff; }
+    .btn--green::after {
+      background-color: #55c57a; }
+  .btn::after {
+    content: '';
+    /* Without the content the ::after does not appear. */
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; }
+  .btn-animation {
+    /* Since we donot want all the buttons who has the class 'btn' to have this animation we create a new animation class and add this to the button. */
+    animation: toBottomUp 1s ease-out;
+    /* Applying all the animation properties in one statement. */ }
+
+.btn-text {
+  transition: all .2s;
+  border-radius: 4px; }
+  .btn-text:link, .btn-text:visited {
+    font-size: 1.6rem;
+    color: #55c57a;
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 1px solid #55c57a;
+    padding: 3px; }
+  .btn-text:hover {
+    color: #fff;
+    background-color: #55c57a;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px); }
+  .btn-text:active {
+    color: #fff;
+    background-color: #55c57a;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    transform: translateY(0); }
+
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem; }
+  .card__side {
+    height: 50rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0rem 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+    .card__side--front {
+      background-color: #fff; }
+    .card__side--back {
+      background-color: green;
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+      .card__side--back-2 {
+        background-image: linear-gradient(to right bottom, #7ed56fd1, #28b485); }
+      .card__side--back-3 {
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0); }
+  .card__picture {
+    height: 25rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: color-burn;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .card__picture-1 {
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg); }
+    .card__picture-2 {
+      background-image: linear-gradient(to right bottom, #7ed56fd1, #28b485), url(../img/nat-6.jpg); }
+    .card__picture-3 {
+      background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url(../img/nat-7.jpg); }
+  .card__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 0rem;
+    width: 75%; }
+  .card__heading-span--1 {
+    -webkit-box-decoration-break: clone;
+    padding: 1rem 1.5rem;
+    background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.5), rgba(255, 119, 48, 0.5)); }
+  .card__heading-span--2 {
+    -webkit-box-decoration-break: clone;
+    padding: 1rem 1.5rem;
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.5), rgba(40, 180, 133, 0.5)); }
+  .card__heading-span--3 {
+    -webkit-box-decoration-break: clone;
+    padding: 1rem 1.5rem;
+    background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.5), rgba(86, 67, 250, 0.5)); }
+  .card__details {
+    padding: 0 3rem; }
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      .card__details ul li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 2px solid #eee; }
+  .card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center; }
+  .card__price-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    color: #fff; }
+  .card__price_only {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  .card__price-value {
+    font-size: 6rem;
+    font-weight: 100; }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    position: absolute;
+    z-index: 10;
+    transition: all .2s; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem; }
+    .composition__photo:hover {
+      outline: 1.5rem solid #55c57a;
+      outline-offset: 2rem;
+      transform: scale(1.1);
+      box-shadow: 0 2.5rem 4.5rem rgba(0, 0, 0, 0.5);
+      z-index: 20; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.95); }
+
+.feature-box {
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: all .2s; }
+  .feature-box_icon {
+    color: rgba(0, 0, 0, 0);
+    font-size: 6rem;
+    margin-bottom: 1.5rem;
+    background-image: linear-gradient(to right, #7ed56fd1, #28b485);
+    -webkit-background-clip: text; }
+  .feature-box:hover {
+    transform: translateY(-1.5rem) scale(1.05); }
+
+.header {
+  height: 95vh;
+  /* 95 percent of the viewport size. Always use vh to make a website as responsive as possible. Because this changes with the size of the screen. */
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /* .. is used to move to the previous directory of the current file. */
+  background-size: cover;
+  /* This in a sense makes the image responsive.It will stretch the image to always cover the entire background with no repeat */
+  background-position: top;
+  /* While cropping the image it sees that the top of the image is not cropped during the resize and only the bottom is resized while cropping */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* Clip path is used to cut an element into a polygon shape we move from the top left into clockwise directon and then specify the coordinate of the ends of the polygon i which the element needs to fit. TO find the various coordinate for any type of polygon go to bennettfeely.com */
+  position: relative;
+  /* The relative position is given to a parent so that the children elements can have a absolute position. */
+  /*  LOGO  */
+  /* Adding & is like adding .header to the name because it is nested in the .header */
+  /*  HEADING  */ }
+  .header__logo-box {
+    position: absolute;
+    /* This shows the position of the element inside a paretn compared to the borders of the parent element. */
+    top: 4rem;
+    /* Since the parent element is set to relative this position is from the top border of the parent. */
+    left: 4rem;
+    /* Since the element is set to absolute and the parent to relative this is at 40px from the left border of the parent */ }
+  .header__logo {
+    height: 3.5rem;
+    /* We only need to specify the height and the browser automatically figures out the width. */ }
+  .header__text-box {
+    position: absolute;
+    /* Sets the position of the division from the borders of the parents. */
+    top: 40%;
+    /* Sets position of the div 40 percent from the top and 50 percent from the left.Use percentages to make a website responsive. */
+    left: 50%;
+    /* But this positioning does not make the division exactly in the center so we use transform.translate. */
+    transform: translate(-50%, -50%);
+    /* This positioning is relative to the original position of the element and not the parent element. So here we are asking the element t0 move negative(50% to the left and 50% to the top) with respect to the center of it's original position. */
+    text-align: center;
+    /* The anchor tag(here used as a button) behaves as text and this is used to center it in the text-box. */ }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-2 {
+    width: calc((100% - 6rem)/2); }
+  .row .col-1-3 {
+    width: calc((100% - 2 * 6rem)/3); }
+  .row .col-2-3 {
+    width: calc((2*((100% - 2 * 6rem)/3)) + 6rem); }
+  .row .col-1-4 {
+    width: calc((100% - 3 * 6rem)/4); }
+  .row .col-2-4 {
+    width: calc((2*((100% - 3 * 6rem)/4)) + 6rem); }
+  .row .col-3-4 {
+    width: calc((3*((100% - 3 * 6rem)/4)) + 2 * 6rem); }
+
+.section-about {
+  background-color: #edebeb;
+  padding: 25rem 0;
+  margin-top: -20vh; }
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/nat-4.jpg);
+  background-size: cover;
+  margin-top: -10rem;
+  transform: skewY(-7deg); }
+  .section-features > * {
+    transform: skewY(7deg); }
+
+.section-tours {
+  background-color: #edebeb;
+  padding: 25rem 0 50rem 0;
+  margin-top: -10rem; }

@@ -1,0 +1,30 @@
+.header{
+    height: 95vh; /* 95 percent of the viewport size. Always use vh to make a website as responsive as possible. Because this changes with the size of the screen. */
+    background-image: linear-gradient(to right, rgba($primary-color-light, 0.8), rgba($primary-color-dark, 0.8)) ,url(../img/hero.jpg); /* .. is used to move to the previous directory of the current file. */
+    background-size: cover; /* This in a sense makes the image responsive.It will stretch the image to always cover the entire background with no repeat */
+    background-position: top; /* While cropping the image it sees that the top of the image is not cropped during the resize and only the bottom is resized while cropping */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* Clip path is used to cut an element into a polygon shape we move from the top left into clockwise directon and then specify the coordinate of the ends of the polygon i which the element needs to fit. TO find the various coordinate for any type of polygon go to bennettfeely.com */
+    position : relative; /* The relative position is given to a parent so that the children elements can have a absolute position. */
+  
+    /*  LOGO  */ /* Adding & is like adding .header to the name because it is nested in the .header */
+
+    &__logo-box{
+      position: absolute; /* This shows the position of the element inside a paretn compared to the borders of the parent element. */
+    top: 4rem; /* Since the parent element is set to relative this position is from the top border of the parent. */
+    left: 4rem; /* Since the element is set to absolute and the parent to relative this is at 40px from the left border of the parent */
+    }
+
+    &__logo{
+      height: 3.5rem; /* We only need to specify the height and the browser automatically figures out the width. */
+    }
+
+    /*  HEADING  */
+
+    &__text-box{
+      position: absolute;/* Sets the position of the division from the borders of the parents. */
+      top: 40%; /* Sets position of the div 40 percent from the top and 50 percent from the left.Use percentages to make a website responsive. */
+      left: 50%; /* But this positioning does not make the division exactly in the center so we use transform.translate. */
+      transform: translate(-50%, -50%); /* This positioning is relative to the original position of the element and not the parent element. So here we are asking the element t0 move negative(50% to the left and 50% to the top) with respect to the center of it's original position. */
+      text-align: center; /* The anchor tag(here used as a button) behaves as text and this is used to center it in the text-box. */
+    }
+  }
