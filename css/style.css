@@ -421,6 +421,45 @@ body {
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.05); }
 
+.footer {
+  margin-top: -30vh;
+  background-color: #333;
+  font-size: 1.4rem;
+  padding: 10rem 0; }
+  .footer__logo-box {
+    text-align: center;
+    margin-bottom: 10rem; }
+  .footer__logo {
+    width: 30rem;
+    height: auto; }
+  .footer__list {
+    list-style: none; }
+  .footer__items {
+    display: inline-block;
+    padding: 4px; }
+    .footer__items:not(:last-child) {
+      margin-right: 1.2rem; }
+  .footer__navigation {
+    border-top: solid 1px #eee;
+    padding: 8px 0;
+    display: inline-block; }
+  .footer__link:link, .footer__link:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #edebeb;
+    background-color: #333;
+    display: inline-block;
+    transition: all 0.2s;
+    padding: 2px 6px; }
+  .footer__link:hover, .footer__link:active {
+    color: #55c57a;
+    box-shadow: 0rem 0.5rem 1.5rem rgba(126, 213, 111, 0.4);
+    transform: scale(1.3);
+    transition: all 0.2s;
+    border-radius: 20px; }
+  .footer__copyright {
+    text-align: right; }
+
 .header {
   height: 95vh;
   /* 95 percent of the viewport size. Always use vh to make a website as responsive as possible. Because this changes with the size of the screen. */
